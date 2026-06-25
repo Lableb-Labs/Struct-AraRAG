@@ -1,8 +1,8 @@
-# Struct-AraRAG
+# Struct-AraRAG: A Structured Relational and Vector Pipeline for Arabic Aggregative QA
 
 ## Overview
 
-This repository contains the implementation and experimental pipeline used in the research paper **[Struct-AraRAG]**. The system processes an Arabic eBook corpus, stores structured metadata in a PostgreSQL database, generates embeddings for unstructured text, and executes the complete retrieval pipeline.
+This repository contains the implementation and experimental pipeline used in the research paper **[Struct-AraRAG: A Structured Relational and Vector Pipeline for Arabic Aggregative QA]**. The system processes an Arabic eBook corpus, stores structured metadata in a PostgreSQL database, generates embeddings for unstructured text, and executes the complete retrieval pipeline.
 
 ---
 
@@ -111,79 +111,3 @@ To reproduce the experimental environment:
 7. Execute `main.py`.
 
 Following these steps should reproduce the dataset preparation and retrieval pipeline used in the research paper.
-
----
-
-## AraAggBench: Test Set for Evaluation
-
-To evaluate the proposed **Arabic Structure-RAG framework**, we introduce **AraAggBench**, a benchmark designed for **aggregative question answering over mixed structured and unstructured Arabic data sources**.
-
-### Dataset Overview
-
-AraAggBench consists of **100 evaluation questions**, carefully stratified based on the type of retrieval strategy required to answer them. The dataset is designed to test different levels of reasoning across structured databases and unstructured textual corpora.
-
-**Dataset Path:**
-
-```text
-dataset/AraAggBench_100_Questions_TestSet.csv
-```
-
----
-
-### Question Stratification (Tiers)
-
-The dataset is divided into three tiers:
-
-* **Tier A — Pure SQL (40 questions)**
-  Questions that require only structured retrieval and aggregation over relational data.
-
-* **Tier B — Hybrid SQL + Vector (40 questions)**
-  Questions requiring both structured filtering (SQL) and semantic retrieval from unstructured text (vector search).
-
-* **Tier C — Pure Vector (20 questions)**
-  Questions answered solely through semantic retrieval over unstructured text, without reliance on structured metadata.
-
----
-
-### Dataset Fields
-
-Each entry in AraAggBench contains the following fields:
-
-* **Tier**
-  Indicates the retrieval category (A, B, or C).
-
-* **Question_Arabic**
-  The original question written in Arabic.
-
-* **Question_English**
-  English translation of the question.
-
-* **Difficulty**
-  Difficulty level assigned to the question: *Easy, Medium, Hard*.
-
-* **SQL_Query** *(optional)*
-  SQL query provided for Tier A and Tier B questions where structured retrieval is required.
-
-* **Documents_IDs** *(optional)*
-  IDs of the retrieved documents in Tier B and Tier C questions where semantic retrieval is applied.
-
-* **Final_Answer**
-  Ground-truth answer used for evaluation.
-
----
-
-### DataSet Fields Generation
-The details of dataset Constructions provided in the paper.
-
-### Data Validation
-
-SQL queries included in the dataset were **manually reviewed and validated** to ensure correctness and consistency.
-
----
-
-### Notes
-
-* The dataset is designed specifically for evaluating **multi-source retrieval systems combining structured and unstructured data**.
-* Tier distribution ensures balanced evaluation across retrieval paradigms.
-
----
