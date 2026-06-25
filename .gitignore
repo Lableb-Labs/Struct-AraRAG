@@ -1,0 +1,23 @@
+# Ignore compiled Python files
+__pycache__/
+
+# Ignore Python bytecode
+*.pyc
+*.pyo
+*.pyd
+
+# Ignore virtual environment
+venv/
+
+# Ignore IDE files
+# PyCharm
+.idea/
+*.iml
+*.iws
+
+.env
+
+embedded_data/
+dataset/The_Arabic_E-Book_Corpus.xlsx
+dataset/The_Arabic_E-Book_Corpus_v2.xlsx
+dataset/AraAggBench_100_Questions_TestSet.csv
